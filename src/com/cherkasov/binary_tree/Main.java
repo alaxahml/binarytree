@@ -47,5 +47,12 @@ public class Main {
         tree.insert_minimal(tree.getRoot(),null,4);
         System.out.println(tree.getRoot().key);
 
+        try {
+            tree.insertroot(tree.getRoot(), null, tree.getRoot().right);
+            System.out.println(tree.getRoot().key);
+        }catch(Exception e){
+            System.out.println("mistake");
+        }
+
     }
 }

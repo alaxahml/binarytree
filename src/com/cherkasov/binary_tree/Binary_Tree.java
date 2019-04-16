@@ -43,17 +43,32 @@ public class Binary_Tree {
             ++h.rights;
         }
     }
-    public void insertroot(Node h,Node inserted){
+    public void insertroot(Node h,Node parent,Node inserted) throws Exception{
         if(h==null){
-            h=new Node(inserted.key);
+            throw new Exception();
         }
+
         if(inserted.key<h.key){
-            insertroot(h.left,inserted);
-            rotateR(h);
+            insertroot(h.left,h,inserted);
+            if(h==root) {
+                h = rotateR(h);
+                root=h;
+            }
+            else{
+                h = rotateR(h);
+                parent.left=h;
+            }
         }
-        else{
-            insertroot(h.right,inserted);
-            rotateL(h);
+        if(inserted.key>h.key){
+            insertroot(h.right,h,inserted);
+            if(h==root) {
+                h = rotateL(h);
+                root=h;
+            }
+            else{
+                h = rotateL(h);
+                parent.right=h;
+            }
         }
     }
     public void insert_minimal(Node h,Node parent,int order){
