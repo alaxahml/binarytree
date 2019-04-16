@@ -1,6 +1,5 @@
 package com.cherkasov.binary_tree;
 
-import jdk.jfr.events.ExceptionThrownEvent;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,6 +33,19 @@ public class Main {
         }catch(Exception e){
             System.out.println("udolil");
         }
+
+        try{
+            tree.search(tree.getRoot(),6);
+        }catch(Exception e){
+            System.out.println("mistake");
+        }
+
+
+        System.out.println(tree.getRoot().key);
+        tree.insert_minimal(tree.getRoot(),null,5);
+        System.out.println(tree.getRoot().key);
+        tree.insert_minimal(tree.getRoot(),null,4);
+        System.out.println(tree.getRoot().key);
 
     }
 }
